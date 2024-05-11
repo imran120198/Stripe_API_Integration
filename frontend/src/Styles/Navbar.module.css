@@ -1,0 +1,14 @@
+.navbarContainer {
+  height: 50px;
+  max-width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.navbarContainer > div:nth-child(1) {
+  text-decoration: none;
+  color: white;
+}

@@ -1,0 +1,29 @@
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: oblique;
+  margin-bottom: 20px;
+}
+
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.productCard {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px;
+}
+
+.productCard > img {
+  height: 200px;
+  width: 200px;
+}
+
+.button {
+  width: 150px;
+  height: 30px;
+  font-weight: 700;
+  cursor: pointer;
+}
