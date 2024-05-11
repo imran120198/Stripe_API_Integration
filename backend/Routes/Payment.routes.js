@@ -19,8 +19,9 @@ PaymentRoute.post("/:amount", async (req, res) => {
 const createCheckoutSession = async (req, res) => {
   try {
     const items = req.body.products;
+    console.log('items:', items)
     let lineItems = items.map((item) => ({
-      price: item.id,
+      price: item.price,
       quantity: item.quantity,
     }));
 
