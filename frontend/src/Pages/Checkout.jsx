@@ -5,7 +5,7 @@ const Checkout = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:8080/cart")
+    axios("http://localhost:8080/payment/checkout")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);

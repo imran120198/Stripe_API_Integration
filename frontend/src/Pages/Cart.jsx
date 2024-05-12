@@ -19,34 +19,18 @@ const Cart = () => {
       });
   }, []);
 
-
-  const handleCheckout = async () => {
-    try {
-      //map the products to use the stripe products IDs
-      const productsForCheckout = cart.map((product) => ({
-        price: product.price,
-        quantity: product.quantity,
-      }));
-      const response = await fetch(
-        "http://localhost:8080/payment/checkout",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            products: productsForCheckout,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      if (data.url) {
-        window.location.assign(data.url);
-      }
-    } catch (err) {
-      console.log("Erorr during checkout: ", err);
-    }
+  const handleCheckout = (price) => {
+    axios
+      .post(`http://localhost:8080/payment/${price}`, {
+        currency: "usd",
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate("/checkout")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const increaseQuantity = (id) => {
